@@ -3,64 +3,92 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AMMAR TECH</title>
+  <title>AMMAR TECH - 3D Design</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
-      background: #f4f4f9;
-      color: #333;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      font-family: 'Arial', sans-serif;
+      overflow: hidden;
+    }
+
+    .container {
       text-align: center;
+      perspective: 1000px;
     }
-    header {
-      background: #0073e6;
-      color: white;
-      padding: 20px 0;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.5em;
-    }
-    nav {
-      margin: 15px 0;
-    }
-    nav a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: white;
+
+    h1 {
+      font-size: 3em;
       font-weight: bold;
+      color: #00eaff;
+      text-shadow: 0 0 20px #00eaff, 0 0 40px #00eaff;
+      transform: rotateY(20deg);
+      animation: float 4s infinite ease-in-out;
     }
-    section {
-      padding: 40px 20px;
+
+    p {
+      font-size: 1.2em;
+      color: #ddd;
+      margin-top: 15px;
+      transform: rotateY(-15deg);
     }
-    footer {
-      background: #222;
-      color: white;
-      padding: 15px 0;
-      margin-top: 30px;
+
+    @keyframes float {
+      0%, 100% {
+        transform: rotateY(20deg) translateY(0px);
+      }
+      50% {
+        transform: rotateY(20deg) translateY(-20px);
+      }
+    }
+
+    .cube {
+      width: 100px;
+      height: 100px;
+      position: relative;
+      margin: 50px auto;
+      transform-style: preserve-3d;
+      animation: spin 6s infinite linear;
+    }
+
+    .cube div {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background: rgba(0, 234, 255, 0.8);
+      border: 2px solid #00eaff;
+    }
+
+    .front  { transform: rotateY(0deg) translateZ(50px); }
+    .back   { transform: rotateY(180deg) translateZ(50px); }
+    .right  { transform: rotateY(90deg) translateZ(50px); }
+    .left   { transform: rotateY(-90deg) translateZ(50px); }
+    .top    { transform: rotateX(90deg) translateZ(50px); }
+    .bottom { transform: rotateX(-90deg) translateZ(50px); }
+
+    @keyframes spin {
+      from { transform: rotateX(0) rotateY(0); }
+      to { transform: rotateX(360deg) rotateY(360deg); }
     }
   </style>
 </head>
 <body>
-  <header>
+  <div class="container">
     <h1>AMMAR TECH</h1>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">About</a>
-      <a href="#">Projects</a>
-      <a href="#">Contact</a>
-    </nav>
-  </header>
-
-  <section>
-    <h2>Welcome to AMMAR TECH</h2>
-    <p>Your free tech hub for innovation, learning, and digital growth.</p>
-    <p>🚀 Powered by GitHub Pages | Always Free</p>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 AMMAR TECH | All Rights Reserved</p>
-  </footer>
+    <p>🚀 Exploring Future Technology in 3D</p>
+    <div class="cube">
+      <div class="front"></div>
+      <div class="back"></div>
+      <div class="right"></div>
+      <div class="left"></div>
+      <div class="top"></div>
+      <div class="bottom"></div>
+    </div>
+  </div>
 </body>
 </html>
